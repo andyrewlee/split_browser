@@ -29,9 +29,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UIWebViewDelegate {
     var brandColorOne = UIColor(red: 0.863, green: 0.420, blue:0.141, alpha: 1.00) // Orange
     var brandColorTwo = UIColor(red: 0.020, green: 0.149, blue:0.318, alpha: 1.00) // Navy Blue
     
-    func webViewDidFinishLoad(webView: UIWebView) {
-        webView.opaque = true
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +53,10 @@ class ViewController: UIViewController, UITextFieldDelegate, UIWebViewDelegate {
             secondWebViewBrowserLabel.text = "B"
         }
     }
+    
+    func webViewDidFinishLoad(webView: UIWebView) {
+        webView.opaque = true
+    }
    
     /* Text Field Protocol */
     func textFieldShouldReturn(textField: UITextField!) -> Bool {
@@ -66,13 +67,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UIWebViewDelegate {
     func textFieldShouldEndEditing(textField: UITextField) -> Bool {
         if textField.text != "" {
             if textField.tag == 1 {
-                let url = NSURL(string: textField.text)
-                let requestObj = NSURLRequest(URL: url!)
-                firstWebView.loadRequest(requestObj)
+                urlOne = textField.text
+                prepareFirstBrowser(true, AndSecond: false)
             } else {
-                let url = NSURL(string: textField.text)
-                let requestObj = NSURLRequest(URL: url!)
-                secondWebView.loadRequest(requestObj)
+                urlTwo = textField.text
+                prepareFirstBrowser(false, AndSecond: true)
             }
         }
         return true;
@@ -80,34 +79,34 @@ class ViewController: UIViewController, UITextFieldDelegate, UIWebViewDelegate {
     
     func prepareFirstBrowser(first: Bool, AndSecond: Bool) {
         if first == true {
-            if  urlOne.hasPrefix("http://") == false {
-                urlOne = "http://" + urlOne
-                println(urlOne)
-            }
-            let requestObjOne = NSURLRequest(URL: NSURL(string: urlOne)!)
+            loadBrowser(firstWebView, withURL: urlOne)
+            
             firstWebView.backgroundColor = brandColorOne
             firstWebViewBrowserLabel.textColor = brandColorOne
             firstWebView.opaque = false
-            firstWebView.loadRequest(requestObjOne)
             firstWebViewInput.text = urlOne
         }
         
         if AndSecond == true {
-            if  urlTwo.hasPrefix("http://") == false {
-                urlTwo = "http://" + urlTwo
-                println(urlOne)
-            }
-            let requestObjTwo = NSURLRequest(URL: NSURL(string: urlTwo)!)
+            loadBrowser(secondWebView, withURL: urlTwo)
+            
             secondWebView.backgroundColor = brandColorTwo
             secondWebViewBrowserLabel.textColor = brandColorTwo
             secondWebView.opaque = false
-            secondWebView.loadRequest(requestObjTwo)
             secondWebViewInput.text = urlTwo
         }
     }
     
     func prepareBrowsers() {
         prepareFirstBrowser(true, AndSecond: true)
+    }
+    
+    func loadBrowser(webView: UIWebView!, var withURL: String) {
+        if  withURL.hasPrefix("http://") == false {
+            withURL = "http://" + withURL
+        }
+        let requestObjOne = NSURLRequest(URL: NSURL(string: withURL)!)
+        webView.loadRequest(requestObjOne)
     }
     
     func refresh(sender:UIRefreshControl) {
