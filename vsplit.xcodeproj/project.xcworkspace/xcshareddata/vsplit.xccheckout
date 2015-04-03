@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>E7E2D7AC-BCCD-41E6-B653-C6282E09187E</string>
+	<key>IDESourceControlProjectName</key>
+	<string>vsplit</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>705FDE77CAEEE2C89694DF3298534FB374920843</key>
+		<string>https://github.com/andyrewlee/split_browser.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>vsplit.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>705FDE77CAEEE2C89694DF3298534FB374920843</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/andyrewlee/split_browser.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>705FDE77CAEEE2C89694DF3298534FB374920843</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>705FDE77CAEEE2C89694DF3298534FB374920843</string>
+			<key>IDESourceControlWCCName</key>
+			<string>vsplit</string>
+		</dict>
+	</array>
+</dict>
+</plist>
